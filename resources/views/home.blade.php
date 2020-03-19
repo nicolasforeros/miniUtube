@@ -27,7 +27,7 @@
                                         {{ $video->name_video }}
                                     </td>
                                     <td>
-                                        {{ $video->categora }}
+                                        {{ $video->categoria }}
                                     </td>
                                     <td>
                                         {{ $video->estado }}

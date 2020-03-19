@@ -18,7 +18,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/uploadVideo', 'UploadVideoController@index')->name('uploadVideo');
+Route::post('/videos', 'VideosController@store');
+
+Route::get('/videos/create', 'VideosController@create')->name('videos/create');
 
 Auth::routes();
 

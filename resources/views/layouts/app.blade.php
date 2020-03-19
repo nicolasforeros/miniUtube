@@ -58,7 +58,7 @@
                             @endif
                         @else
                             <li class=""> 
-                            <a class="nav-link" href="{{ route('uploadVideo') }}"> {{ __('Subir video')   }}</a>  
+                            <a class="nav-link" href="{{ route('videos/create') }}"> {{ __('Subir video')   }}</a>  
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -29,4 +29,9 @@ class UploadVideoController extends Controller
         return view('uploadVideo',['categorias' => $categorias]);
     }
 
+    public function uploadVideo()
+    {
+        dd(request()->all());
+    }
+
 }
