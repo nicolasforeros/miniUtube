@@ -43,9 +43,9 @@ class VideosController extends Controller
         request()->validate([
             'nombre'       => 'required|string|min:5|max:50',
             'descripcion' => 'required|string|min:2|max:250',
-            'horas'   => 'required|integer',
-            'min'   => 'required|integer',
-            'seg'   => 'required|integer',
+            'horas'   => 'required|numeric',
+            'min'   => 'required|numeric',
+            'seg'   => 'required|numeric',
             'categoria'   => 'required|integer',
             'videoFile'   => 'required|mimes:mp4',
             'imgFile'   => 'required|mimes:jpeg,jpg',
@@ -67,14 +67,14 @@ class VideosController extends Controller
         $video->save();
 
 
-        $destinationPathVideo = "./videos/users/$video->user_id/$video->id/video/";
-        $videoName = $video->name . "." . $request->file('videoFile')->getClientOriginalExtension();
+        $destinationPathVideo = "./storage/users/$video->user_id/$video->id/video/";
+        $videoName = $video->id . "." . $request->file('videoFile')->getClientOriginalExtension();
         $request->file('videoFile')->move($destinationPathVideo, $videoName);
 
         $video->rutaVideo = $destinationPathVideo . $videoName;
 
 
-        $destinationPathImage = "./videos/users/$video->user_id/$video->id/image/";
+        $destinationPathImage = "./storage/users/$video->user_id/$video->id/image/";
         $image = $request->file('imgFile')->getClientOriginalName() . "." . $request->file('imgFile')->getClientOriginalExtension();
         $request->file('imgFile')->move($destinationPathImage, $image);
         
